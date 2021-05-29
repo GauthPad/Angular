@@ -17,10 +17,12 @@ const routes: Routes = [
       { path: 'view/:id', component: ProductViewComponent}
     ]
   },
+  { path:'login', loadChildren: () => import('./login/login.module').then(mod =>mod.LoginModule)},
   { path:'product-edit', component: ProductEditComponent },
   { path:'product-view', component: ProductViewComponent },
   { path:'product/:id', component: ProductIdComponent },// Parameterized Routes (catching params in prodcutId Component)
-  { path:'search', component: SearchComponent}, // Query Params in Routing (catching params in search Component)
+  { path:'search', component: SearchComponent},
+  { path: 'testpath', loadChildren: () => import('./test/test.module').then(m => m.TestModule) }, // Query Params in Routing (catching params in search Component)
   { path:'**', component: PageNotFoundComponent} // WildCard Routing
 ];
 
